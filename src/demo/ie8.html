@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="renderer" content="webkit" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+    <title>html静态测试页</title>
+    <meta name="keywords" content="html静态测试页">
+    <meta name="description" content="同盾科技智能风控云服务，依托大数据分析技术，精准预测信贷、银行保险、电商等领域的信用及欺诈风险，有效降低企业风控成本。">
+    <link rel="stylesheet" type="text/css" href="https://portal-static.tongdun.cn/static-public/anti_fraud_web/common/1.0.1/css/!!common.css">
+    <link rel="stylesheet" type="text/css" href="/css/respond.css">
+    <!--
+        html5shiv 是一个针对 IE 浏览器的 HTML5 JavaScript 补丁，目的是让 IE 识别并支持 HTML5 元素。
+        https://www.bootcdn.cn/html5shiv/
+
+        es5-shim.js/es5-shim-min.js:
+        可以让一些低级的浏览器支持ES5中的一些特性。
+        注意： 由于es5-shim.js使用的是EMCScript的原生方法来实现的，因此必须放在所有外部导入js文件的最上面。
+
+        es6-shim.js/es6-shim-min.js:
+        可以让一些低级的浏览器支持ES6中的一些特性。
+
+        es6-promise.auto会检测Promise是否存在，若存在原生的Promise，则不执行；否则会应用polyfill;
+    -->
+    <!--[if lt IE 9]>
+    <script src="/js/polyfill/html5shiv.min.js"></script>
+    <script src="/js/polyfill/respond.min.js"></script>
+    <script src="/js/polyfill/es5-shim.min.js"></script>
+    <script src="/js/polyfill/es6-shim.min.js"></script>
+    <script src="/js/polyfill/es6-promise.auto.min.js"></script>
+    <style>
+        article, aside, dialog, footer, header, section, footer, nav, figure, menu {
+            display: block
+        }
+    </style>
+    <![endif]-->
+    <style>
+        .AdblockBanner {
+            position: relative;
+            z-index: 100;
+            min-width: 1000px;
+            padding: 16px;
+            line-height: 28px;
+            color: #8590A6;
+            text-align: center;
+            background-color: #EBEBEB;
+            display: none;
+        }
+
+        .AdblockBanner-inner {
+            width: 1000px;
+            padding: 0 24px;
+            margin: 0 auto;
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+<body>
+<div class="AdblockBanner">
+    <div class="AdblockBanner-inner">我们检测到你可能使用了 AdBlock 或 Adblock Plus，它的部分策略可能会影响到正常功能的使用。<br>你可以设定特殊规则或将同盾加入白名单，以便我们更好地提供服务。</div>
+</div>
+<!--<div class="ant-layout">
+    <div class="ant-layout-header">Header</div>
+    <div class="ant-layout-content">
+        <input placeholder="Basic usage" type="text" class="ant-input">
+    </div>
+    <div class="ant-layout-footer">Footer</div>
+</div>-->
+
+<div>
+    <p>This is just a visual test file, and an ugly one at that! For unit tests, visit the <a href="unit/"> Respond.js unit test suite</a></p>
+
+    <p>The media queries in the included CSS file simply change the body's background color depending on the browser width. If you see any colors aside from black, then the media queries are working in your browser. You can resize your
+        browser window to see it change on the fly.</p>
+
+    <p>For a realistic use case for media queries: read up on <a href="http://www.alistapart.com/articles/responsive-web-design/">Responsive Web Design</a></p>
+
+    <p id="attribute-test">Media-attributes are working too! This should be visible above 37.5em.</p>
+</div>
+<div id="jsonp">
+</div>
+<div id="error">
+
+</div>
+
+<script src="https://portal-static.tongdun.cn/static-public/anti_fraud_web/common/1.0.1/js/!!jquery-1.9.1.min.js"></script>
+<!-- 引入vConsole的JS库 -->
+<script src="http://wechatfe.github.io/vconsole/lib/vconsole.min.js?v=3.2.0"></script>
+<script src="/js/forbidden_adware.min.js"></script>
+
+<script>
+	var fuckAdBlock = new FuckAdBlock({
+		checkOnLoad: true,
+		resetOnEnd: true,
+	});
+
+	/*fuckAdBlock.onNotDetected(function () {
+		alert('AdBlock is not enabled');
+	});*/
+
+	fuckAdBlock.onDetected(function () {
+		//alert('AdBlock is enabled');
+		$('.AdblockBanner').show();
+	});
+
+	// 初始化vConsole,不调用不会实例化
+	window.vConsole = new window.VConsole();
+
+	$.ajax({
+		url: 'https://suggest.taobao.com/sug?code=utf-8&q=%E5%8D%AB%E8%A1%A3',
+		dataType: 'jsonp',
+		processData: false,
+		type: 'get',
+		success: function (data) {
+			$('#jsonp').html(JSON.stringify(data));
+		},
+		error: function (XMLHttpRequest, textStatus, errorThrown) {
+			alert('error');
+			alert(XMLHttpRequest.status);
+			alert(XMLHttpRequest.readyState);
+			alert(textStatus);
+		},
+	});
+</script>
+</body>
+</html>

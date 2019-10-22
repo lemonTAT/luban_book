@@ -1,0 +1,40 @@
+{
+  "name": "luban_book",
+  "version": "1.0.0",
+  "description": "鲁班应用搭建平台",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/178518/luban_book"
+  },
+  "author": "178518@gmail.com",
+  "scripts": {
+    "init": "npm install && gitbook install",
+    "dev": "rm -rf _book && gitbook serve",
+    "build": "rm -rf _book && gitbook build",
+    "publish": "node deploy.js"
+  },
+  "dependencies": {
+    "gitbook-plugin-advanced-emoji": "^0.2.2",
+    "gitbook-plugin-alerts": "^0.2.0",
+    "gitbook-plugin-copy-code-button": "0.0.2",
+    "gitbook-plugin-disqus": "^0.1.0",
+    "gitbook-plugin-donate": "^1.0.2",
+    "gitbook-plugin-editlink": "^1.0.2",
+    "gitbook-plugin-github": "^2.0.0",
+    "gitbook-plugin-include-codeblock": "^3.2.2",
+    "gitbook-plugin-prism-ext": "^3.1.3",
+    "gitbook-plugin-search-plus": "^1.0.3",
+    "gitbook-plugin-splitter": "0.0.8",
+    "gitbook-plugin-tbfed-pagefooter": "0.0.1",
+    "gitbook-plugin-theme-api": "^1.1.2",
+    "gitbook-plugin-theme-comscore": "0.0.3",
+    "live-server": "^1.2.1"
+  },
+  "devDependencies": {
+    "chalk": "^2.4.2",
+    "node-cmd": "^3.0.0",
+    "node-schedule": "^1.3.1",
+    "ora": "^3.4.0",
+    "symbols": "0.0.6"
+  }
+}
