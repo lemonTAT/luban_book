@@ -1,5 +1,4 @@
-# Next 中文手册
+# 鲁班应用搭建平台
 
-Next.js 是一个轻量级的 React 服务端渲染应用框架。
+![鲁班](images/product.png)
 
-[Next.js中文文档](https://nextjs.frontendx.cn/)
