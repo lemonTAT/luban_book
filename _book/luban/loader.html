@@ -408,13 +408,13 @@
                                 <section class="normal markdown-section">
                                 
                                 <html><head></head><body><h1 id="loader">Loader</h1>
-<h2 id="lubanloadercssurl-blockid">LuBanLoader.css(url, blockId)</h2>
+<h2 id="lubanloadercssurl-blockid">LubanLoader.css(url, blockId)</h2>
 <ul>
 <li>url(&#x52A0;&#x8F7D;&#x5730;&#x5740;): string</li>
 <li>blockId(&#x533A;&#x5757;ID):string</li>
 </ul>
 <p>&#x52A0;&#x8F7D;CSS&#x675F;</p>
-<h2 id="lubanloaderloadscripturl-blockid-async-next">LuBanLoader.loadScript(url, blockId, async, next)</h2>
+<h2 id="lubanloaderloadscripturl-blockid-async-next">LubanLoader.loadScript(url, blockId, async, next)</h2>
 <p><a href="https://juejin.im/post/5bcdaed7e51d457a8254e1b7" target="_blank">&#x7F51;&#x9875;&#x6027;&#x80FD;&#x4F18;&#x5316;&#x4E4B;&#x5F02;&#x6B65;&#x52A0;&#x8F7D;js&#x6587;&#x4EF6;</a></p>
 <ul>
 <li>url(&#x52A0;&#x8F7D;&#x5730;&#x5740;): string</li>
@@ -423,12 +423,12 @@
 <li>next(&#x533A;&#x5757;ID):function</li>
 </ul>
 <p>&#x52A0;&#x8F7D;CSS&#x675F;</p>
-<h2 id="lubanloadergetcurrentblockdata">LuBanLoader.getCurrentBlockData()</h2>
-<h2 id="lubanloadergetblockdatablockid">LuBanLoader.getBlockData(blockId)</h2>
+<h2 id="lubanloadergetcurrentbigrenderdata">LubanLoader.getCurrentBigRenderData()</h2>
+<h2 id="lubanloadergetbigrenderdatablockid">LubanLoader.getBigRenderData(blockId)</h2>
 <ul>
 <li>blockId(&#x533A;&#x5757;ID):string</li>
 </ul>
-<h2 id="lubanloaderremovebundleblockid">LuBanLoader.removeBundle(blockId)</h2>
+<h2 id="lubanloaderremovebundleblockid">LubanLoader.removeBundle(blockId)</h2>
 <ul>
 <li>blockId(&#x533A;&#x5757;ID):string</li>
 </ul>
@@ -441,18 +441,18 @@
     define([], factory);
   } else {
     // Global (browser)
-    root.LuBanLoader = factory();
+    root.LubanLoader = factory();
   }
 }(this, function() {
-  var LuBanLoader = LuBanLoader || (function(window, document) {
-    var LuBanLoader = {};
-    LuBanLoader.version = &apos;1.0.0&apos;;
+  var LubanLoader = LubanLoader || (function(window, document) {
+    var LubanLoader = {};
+    LubanLoader.version = &apos;1.0.0&apos;;
 
     var head = document.getElementsByTagName(&apos;head&apos;)[0];
     var body = document.getElementsByTagName(&apos;body&apos;)[0];
 
     // &#x5F02;&#x6B65;&#x52A0;&#x8F7D;JS
-    var loadScript = LuBanLoader.loadScript = function(url, blockId, async, next) {
+    var loadScript = LubanLoader.loadScript = function(url, blockId, async, next) {
       var script = document.createElement(&apos;script&apos;);
       script.charset = &apos;UTF-8&apos;;
       script.async = async;
@@ -480,7 +480,7 @@
     };
 
     // &#x5F02;&#x6B65;&#x52A0;&#x8F7D;CSS
-    var loadCss = LuBanLoader.loadCss = function(url, blockId) {
+    var loadCss = LubanLoader.loadCss = function(url, blockId) {
       var style = document.createElement(&apos;link&apos;);
       style.href = url;
       if (blockId) {
@@ -491,37 +491,58 @@
       head.appendChild(style);
     };
 
-    var getCurrentBlockData = LuBanLoader.getCurrentBlockData = function() {
+    /**
+     * &#x83B7;&#x53D6;&#x5F53;&#x524D;&#x6267;&#x884C;JS&#x7684;blockId
+     */
+    var getCurrentBlockId = LubanLoader.getCurrentBlockId = function() {
       /**
        * &#x5F53;&#x524D;&#x6B63;&#x5728;&#x88AB;&#x6267;&#x884C;&#x7684;&#x811A;&#x672C;
        * https://caniuse.com/#search=currentScript
        */
       var currentScript = document.currentScript;
-      var currentUUID = (currentScript &amp;&amp; currentScript.dataset.jsBlockId) || &apos;&apos;;
-      var blockDataEle = document.querySelectorAll(`[data-block-textarea=&quot;${currentUUID}&quot;]`);
-      var currentBlockDataStr = (blockDataEle.length &gt; 0 &amp;&amp; blockDataEle[0].innerText) || &apos;&apos;;
-
-      var blockObj = {};
-      if (currentBlockDataStr) {
-        blockObj = JSON.parse(currentBlockDataStr);
-      }
-
-      return blockObj;
+      return (currentScript &amp;&amp; currentScript.dataset.jsBlockId) || &apos;container&apos;;
     };
 
-    var getBlockData = LuBanLoader.getBlockData = function(blockId) {
-      var blockDataEle = document.querySelectorAll(`[data-block-textarea=&quot;${blockId}&quot;]`);
-      var blockDataStr = (blockDataEle.length &gt; 0 &amp;&amp; blockDataEle[0].innerText) || &apos;&apos;;
+    /**
+     * &#x83B7;&#x53D6;blockId&#x5BF9;&#x5E94;BigRenderData
+     * @type {function()}
+     */
+    var getCurrentBigRenderData = LubanLoader.getCurrentBigRenderData = function() {
+      /**
+       * &#x5F53;&#x524D;&#x6B63;&#x5728;&#x88AB;&#x6267;&#x884C;&#x7684;&#x811A;&#x672C;
+       * https://caniuse.com/#search=currentScript
+       */
+      var currentUUID = LubanLoader.getCurrentBlockId();
+      var bigRenderDataEle = document.querySelectorAll(`[data-block-textarea=&quot;${currentUUID}&quot;]`);
+      var bigRenderDataStr = (bigRenderDataEle.length &gt; 0 &amp;&amp; bigRenderDataEle[0].innerText) || &apos;&apos;;
 
-      var blockObj = {};
-      if (blockDataStr) {
-        blockObj = JSON.parse(blockDataStr);
+      var bigRenderDataObj = {};
+      if (bigRenderDataStr) {
+        bigRenderDataObj = JSON.parse(bigRenderDataStr);
       }
 
-      return blockObj;
+      return bigRenderDataObj;
     };
 
-    var removeBundle = Loader.removeBundle = function(blockId) {
+    /**
+     * &#x83B7;&#x53D6;block bigrenderData
+     */
+    var getBigRenderData = LubanLoader.getBigRenderData = function(blockId) {
+      var bigRenderDataEle = document.querySelectorAll(`[data-block-textarea=&quot;${blockId}&quot;]`);
+      var bigRenderDataStr = (bigRenderDataEle.length &gt; 0 &amp;&amp; bigRenderDataEle[0].innerText) || &apos;&apos;;
+
+      var bigRenderDataObj = {};
+      if (bigRenderDataStr) {
+        bigRenderDataObj = JSON.parse(bigRenderDataStr);
+      }
+
+      return bigRenderDataObj;
+    };
+
+    /**
+     * &#x79FB;&#x9664;block bundle &#x8D44;&#x6E90;
+     */
+    var removeBundleEle = LubanLoader.removeBundleEle = function(blockId) {
       var cssBundleEle = document.querySelectorAll(`[data-css-block-id=&quot;${blockId}&quot;]`);
       var jsBundleEle = document.querySelectorAll(`[data-js-block-id=&quot;${blockId}&quot;]`);
 
@@ -529,13 +550,38 @@
       jsBundleEle &amp;&amp; jsBundleEle[0] &amp;&amp; jsBundleEle[0].remove();
     };
 
-    return LuBanLoader;
+    /**
+     * eventId&#x6536;&#x655B;
+     */
+    var getLubanEventId = LubanLoader.getLubanEventId = function(moduleName, blockId, eventType) {
+      var eventStr = &apos;Luban&apos;;
+
+      if (moduleName) {
+        eventStr = eventStr + `.${moduleName}`;
+      }
+
+      if (blockId) {
+        eventStr = eventStr + `.${blockId}`;
+      }
+
+      if (eventType) {
+        eventStr = eventStr + `.${eventType}`;
+      }
+
+      return eventStr;
+    };
+
+    var throwLubanError = LubanLoader.throwLubanError = function(msg) {
+      throw new Error(`${msg}`);
+    };
+
+    return LubanLoader;
   }(window, document));
 
-  return LuBanLoader;
+  return LubanLoader;
 }));
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><footer class="page-footer"><span class="copyright">Copyright @2019 all right reserved&#xFF0C;powered by Gitbook</span><span class="footer-modification">&#x8BE5;&#x6587;&#x4EF6;&#x4FEE;&#x8BA2;&#x65F6;&#x95F4;&#xFF1A;
-2019-10-22 11:51:41
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><footer class="page-footer"><span class="copyright">Copyright @2019 all right reserved&#xFF0C;powered by Gitbook</span><span class="footer-modification">&#x8BE5;&#x6587;&#x4EF6;&#x4FEE;&#x8BA2;&#x65F6;&#x95F4;&#xFF1A;
+2019-10-25 09:44:36
 </span></footer></body></html>
                                 
                                 </section>
@@ -569,7 +615,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"加载器","level":"1.3.4","depth":2,"next":{"title":"业务编排","level":"1.3.5","depth":2,"path":"luban/event.md","ref":"luban/event.md","articles":[]},"previous":{"title":"鲁班可视化布局","level":"1.3.3","depth":2,"path":"luban/rgl.md","ref":"luban/rgl.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-lunr","-search","-sharing","-highlight","splitter","search-plus","prism-ext","github","editlink","advanced-emoji","tbfed-pagefooter","theme-comscore","theme-api","disqus","copy-code-button","donate","alerts","include-codeblock"],"root":"./src","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"Copyright @2019","modify_label":"该文件修订时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"prism":{"theme":"prism-themes/themes/prism-duotone-dark.css","plugins":["line-numbers","line-highlight"],"cssClasses":"line-numbers","codeBlockExtSyntax":true,"lineHeight":20},"disqus":{"useIdentifier":false,"shortName":"luban"},"github":{"url":"https://github.com/178518/luban_book"},"editlink":{"label":"编辑本页","multilingual":false,"base":"https://github.com/178518/luban_book/tree/master/src"},"splitter":{},"donate":{"title":"","button":"赏","wechat":"/images/pay/wechatpay.jpg","alipay":"/images/pay/alipay.jpg","wechatText":"微信打赏","alipayText":"支付宝打赏"},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-comscore":{},"prism-ext":{},"theme-api":{"languages":[],"split":true,"theme":"dark"},"alerts":{},"copy-code-button":{},"advanced-emoji":{"embedEmojis":false},"include-codeblock":{"check":false,"edit":false,"lang":"","fixlang":false,"template":"ace","theme":"monokai","unindent":true},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":true},"search-plus":{}},"theme":"default","author":"178518 <178518@gmail.com>","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"鲁班应用搭建平台","language":"zh-hans","links":{"sidebar":{"鲁班应用搭建平台":"https://github.com/178518/luban_book"}},"gitbook":">=3.0.0","description":"鲁班应用搭建平台"},"file":{"path":"luban/loader.md","mtime":"2019-10-22T03:51:41.506Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-10-25T01:34:22.089Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"加载器","level":"1.3.4","depth":2,"next":{"title":"业务编排","level":"1.3.5","depth":2,"path":"luban/event.md","ref":"luban/event.md","articles":[]},"previous":{"title":"鲁班可视化布局","level":"1.3.3","depth":2,"path":"luban/rgl.md","ref":"luban/rgl.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-lunr","-search","-sharing","-highlight","splitter","search-plus","prism-ext","github","editlink","advanced-emoji","tbfed-pagefooter","theme-comscore","theme-api","disqus","copy-code-button","donate","alerts","include-codeblock"],"root":"./src","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"Copyright @2019","modify_label":"该文件修订时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"prism":{"theme":"prism-themes/themes/prism-duotone-dark.css","plugins":["line-numbers","line-highlight"],"cssClasses":"line-numbers","codeBlockExtSyntax":true,"lineHeight":20},"disqus":{"useIdentifier":false,"shortName":"luban"},"github":{"url":"https://github.com/178518/luban_book"},"editlink":{"label":"编辑本页","multilingual":false,"base":"https://github.com/178518/luban_book/tree/master/src"},"splitter":{},"donate":{"title":"","button":"赏","wechat":"/images/pay/wechatpay.jpg","alipay":"/images/pay/alipay.jpg","wechatText":"微信打赏","alipayText":"支付宝打赏"},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-comscore":{},"prism-ext":{},"theme-api":{"languages":[],"split":true,"theme":"dark"},"alerts":{},"copy-code-button":{},"advanced-emoji":{"embedEmojis":false},"include-codeblock":{"check":false,"edit":false,"lang":"","fixlang":false,"template":"ace","theme":"monokai","unindent":true},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":true},"search-plus":{}},"theme":"default","author":"178518 <178518@gmail.com>","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"鲁班应用搭建平台","language":"zh-hans","links":{"sidebar":{"鲁班应用搭建平台":"https://github.com/178518/luban_book"}},"gitbook":">=3.0.0","description":"鲁班应用搭建平台"},"file":{"path":"luban/loader.md","mtime":"2019-10-25T01:44:36.224Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-10-25T01:44:44.545Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

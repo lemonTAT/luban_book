@@ -1,13 +1,13 @@
 # Loader
 
-## LuBanLoader.css(url, blockId)
+## LubanLoader.css(url, blockId)
 
 - url(加载地址): string
 - blockId(区块ID):string
 
 加载CSS束
 
-## LuBanLoader.loadScript(url, blockId, async, next)
+## LubanLoader.loadScript(url, blockId, async, next)
 
 [网页性能优化之异步加载js文件](https://juejin.im/post/5bcdaed7e51d457a8254e1b7)
 
@@ -18,13 +18,13 @@
 
 加载CSS束
 
-## LuBanLoader.getCurrentBlockData()
+## LubanLoader.getCurrentBigRenderData()
 
-## LuBanLoader.getBlockData(blockId)
+## LubanLoader.getBigRenderData(blockId)
 
 - blockId(区块ID):string
 
-## LuBanLoader.removeBundle(blockId)
+## LubanLoader.removeBundle(blockId)
 
 - blockId(区块ID):string
 
@@ -38,18 +38,18 @@
     define([], factory);
   } else {
     // Global (browser)
-    root.LuBanLoader = factory();
+    root.LubanLoader = factory();
   }
 }(this, function() {
-  var LuBanLoader = LuBanLoader || (function(window, document) {
-    var LuBanLoader = {};
-    LuBanLoader.version = '1.0.0';
+  var LubanLoader = LubanLoader || (function(window, document) {
+    var LubanLoader = {};
+    LubanLoader.version = '1.0.0';
 
     var head = document.getElementsByTagName('head')[0];
     var body = document.getElementsByTagName('body')[0];
 
     // 异步加载JS
-    var loadScript = LuBanLoader.loadScript = function(url, blockId, async, next) {
+    var loadScript = LubanLoader.loadScript = function(url, blockId, async, next) {
       var script = document.createElement('script');
       script.charset = 'UTF-8';
       script.async = async;
@@ -77,7 +77,7 @@
     };
 
     // 异步加载CSS
-    var loadCss = LuBanLoader.loadCss = function(url, blockId) {
+    var loadCss = LubanLoader.loadCss = function(url, blockId) {
       var style = document.createElement('link');
       style.href = url;
       if (blockId) {
@@ -88,37 +88,58 @@
       head.appendChild(style);
     };
 
-    var getCurrentBlockData = LuBanLoader.getCurrentBlockData = function() {
+    /**
+     * 获取当前执行JS的blockId
+     */
+    var getCurrentBlockId = LubanLoader.getCurrentBlockId = function() {
       /**
        * 当前正在被执行的脚本
        * https://caniuse.com/#search=currentScript
        */
       var currentScript = document.currentScript;
-      var currentUUID = (currentScript && currentScript.dataset.jsBlockId) || '';
-      var blockDataEle = document.querySelectorAll(`[data-block-textarea="${currentUUID}"]`);
-      var currentBlockDataStr = (blockDataEle.length > 0 && blockDataEle[0].innerText) || '';
-
-      var blockObj = {};
-      if (currentBlockDataStr) {
-        blockObj = JSON.parse(currentBlockDataStr);
-      }
-
-      return blockObj;
-    };
-    
-    var getBlockData = LuBanLoader.getBlockData = function(blockId) {
-      var blockDataEle = document.querySelectorAll(`[data-block-textarea="${blockId}"]`);
-      var blockDataStr = (blockDataEle.length > 0 && blockDataEle[0].innerText) || '';
-
-      var blockObj = {};
-      if (blockDataStr) {
-        blockObj = JSON.parse(blockDataStr);
-      }
-
-      return blockObj;
+      return (currentScript && currentScript.dataset.jsBlockId) || 'container';
     };
 
-    var removeBundle = Loader.removeBundle = function(blockId) {
+    /**
+     * 获取blockId对应BigRenderData
+     * @type {function()}
+     */
+    var getCurrentBigRenderData = LubanLoader.getCurrentBigRenderData = function() {
+      /**
+       * 当前正在被执行的脚本
+       * https://caniuse.com/#search=currentScript
+       */
+      var currentUUID = LubanLoader.getCurrentBlockId();
+      var bigRenderDataEle = document.querySelectorAll(`[data-block-textarea="${currentUUID}"]`);
+      var bigRenderDataStr = (bigRenderDataEle.length > 0 && bigRenderDataEle[0].innerText) || '';
+
+      var bigRenderDataObj = {};
+      if (bigRenderDataStr) {
+        bigRenderDataObj = JSON.parse(bigRenderDataStr);
+      }
+
+      return bigRenderDataObj;
+    };
+
+    /**
+     * 获取block bigrenderData
+     */
+    var getBigRenderData = LubanLoader.getBigRenderData = function(blockId) {
+      var bigRenderDataEle = document.querySelectorAll(`[data-block-textarea="${blockId}"]`);
+      var bigRenderDataStr = (bigRenderDataEle.length > 0 && bigRenderDataEle[0].innerText) || '';
+
+      var bigRenderDataObj = {};
+      if (bigRenderDataStr) {
+        bigRenderDataObj = JSON.parse(bigRenderDataStr);
+      }
+
+      return bigRenderDataObj;
+    };
+
+    /**
+     * 移除block bundle 资源
+     */
+    var removeBundleEle = LubanLoader.removeBundleEle = function(blockId) {
       var cssBundleEle = document.querySelectorAll(`[data-css-block-id="${blockId}"]`);
       var jsBundleEle = document.querySelectorAll(`[data-js-block-id="${blockId}"]`);
 
@@ -126,9 +147,34 @@
       jsBundleEle && jsBundleEle[0] && jsBundleEle[0].remove();
     };
 
-    return LuBanLoader;
+    /**
+     * eventId收敛
+     */
+    var getLubanEventId = LubanLoader.getLubanEventId = function(moduleName, blockId, eventType) {
+      var eventStr = 'Luban';
+
+      if (moduleName) {
+        eventStr = eventStr + `.${moduleName}`;
+      }
+
+      if (blockId) {
+        eventStr = eventStr + `.${blockId}`;
+      }
+
+      if (eventType) {
+        eventStr = eventStr + `.${eventType}`;
+      }
+
+      return eventStr;
+    };
+
+    var throwLubanError = LubanLoader.throwLubanError = function(msg) {
+      throw new Error(`${msg}`);
+    };
+
+    return LubanLoader;
   }(window, document));
 
-  return LuBanLoader;
+  return LubanLoader;
 }));
 ```
