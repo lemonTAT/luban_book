@@ -5,6 +5,7 @@
  
 * [鲁班应用搭建平台]()
  - [鲁班](luban/about.md)
+ - [鲁班时序图](luban/timeline.md)
  - [鲁班BigRender](luban/bigrender.md)
  - [鲁班可视化布局](luban/rgl.md)
  - [加载器](luban/loader.md) 
