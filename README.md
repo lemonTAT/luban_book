@@ -15,11 +15,11 @@ npm run build
 
 申请虚拟机之后，可以直接clone仓库实现自动热更新
 
-pm2 start app.js -i max --name fed-doc
+pm2 start app.js -i max --name luban_book
 
 通过job可以实现自动检出
 
-pm2 start job.js --watch --name fed-doc-job
+pm2 start job.js --watch --name luban_book_job
 
 也可以将_book电子书发布到github上，通过
 

@@ -11,6 +11,10 @@
  - [加载器](luban/loader.md) 
  - [业务编排](luban/event.md) 
 
+* [行业思考]()
+ - [5G+AI+IoT 超级互联网时代的思考](thinking/5gaiot.md)
+
+
 * [MD演示]()
  - [API](demo/methods.md)
  - [Alert](demo/alert.md)
