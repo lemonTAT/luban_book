@@ -112,6 +112,10 @@ Node将在5G加持下获取更多的能力，基于边缘设备我们可以部�
 - 数据互联互通：在HTTP通信层面基于http-proxy-middleware的LubanProxy代理实现跨域和Cookie请求携带。Java语言RPC基于Dubbo2.js，其他语言RPC基于Google GPRC
 - 模型能力调用：在AI层面基于opencv4nodejs实现了对模型的直接调用，基于tesseract实现ORC的能力
 
+[看看你长的最像那个名人](https://x.tongdun.cn/ai)
+
+![luban](../images/5g/ai_scan.png)
+
 ## 参考资料
 
 - [开发板界的「瑞士军刀」—— 树莓派 4 轻体验](https://sspai.com/post/56452)
