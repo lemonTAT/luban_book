@@ -42,7 +42,7 @@ Mate 30 Pro 5G上市，作为首批用户我第一时间使用SPEEDTEST实测4G�
 - 通过数据世界我们将重新认识物理世界 (基于新型网络协议的联网能力)
 - 物理世界的数字化将变革人类的生产实践活动 (基于云数据和大计算的综合处理能力)
 
-![IOT_DEMO](../images/5G/iot_demo.jpg)
+![IOT_DEMO](../images/5g/iot_demo.jpg)
 
 ## GUI软件
 
@@ -50,7 +50,7 @@ Mate 30 Pro 5G上市，作为首批用户我第一时间使用SPEEDTEST实测4G�
 
 如此复杂的Web应用，动辄几十上百人共同开发维护，其前端界面通常也颇具规模，工程量不亚于一般的传统GUI软件：
 
-![Web_GUI](../images/5G/web_gui.png)
+![Web_GUI](../images/5g/web_gui.png)
 
 ## 超级互联网时代的开发思考
 
@@ -58,7 +58,7 @@ Mate 30 Pro 5G上市，作为首批用户我第一时间使用SPEEDTEST实测4G�
 
 5G的高速率让服务端渲染(SSR)重新焕发生机，把渲染放到后端，不仅是同构更关注端到端的服务交互，渲染优化等。
 
-![Web_GUI](../images/5G/framework.png)
+![Web_GUI](../images/5g/framework.png)
 
 ### 低延时、高速率、高密度，前端网络环境变好
 
@@ -74,23 +74,23 @@ Mate 30 Pro 5G上市，作为首批用户我第一时间使用SPEEDTEST实测4G�
 
 大量的IOT设备入网，物理世界抽象到数字世界，将带来大量的中台建设需求。传统的Code开发模式将日益无法支撑爆发式的增持需求。
 
-![IOT_FRAMEWORK](../images/5G/iot_framework.png)
+![IOT_FRAMEWORK](../images/5g/iot_framework.png)
 
 (泛IOT架构)
 
-![mqtt_broker](../images/5G/mqtt_broker.png)
+![mqtt_broker](../images/5g/mqtt_broker.png)
 
 (mqtt_broker)
 
-![arduinos](../images/5G/arduinos.png)
+![arduinos](../images/5g/arduinos.png)
 
 (arduinos)
 
-![IOT](../images/5G/iot.jpg)
+![IOT](../images/5g/iot.jpg)
 
 (WeMos D1 mini NodeMCU)
 
-![5g_cep](../images/5G/5g_cep.png)
+![5g_cep](../images/5g/5g_cep.png)
 
 (HuaWei 5G CEP PRO)
 
@@ -100,13 +100,13 @@ Mate 30 Pro 5G上市，作为首批用户我第一时间使用SPEEDTEST实测4G�
 
 Node将在5G加持下获取更多的能力，基于边缘设备我们可以部署一个小型节点。这个节点上我们可以适时采集用户图像数据，并利用云端的模型适时检测得到结果，结果适时回传云端。
 
-![ai_platform](../images/5G/ai_platform.png)
+![ai_platform](../images/5g/ai_platform.png)
 
 ### 鲁班应用搭建平台
 
-![luban](../images/5G/luban.png)
+![luban](../images/5g/luban.png)
 
-![luban](../images/5G/luban_2.png)
+![luban](../images/5g/luban_2.png)
 
 - 服务端渲染：基于Next.js
 - 数据互联互通：在HTTP通信层面基于http-proxy-middleware的LubanProxy代理实现跨域和Cookie请求携带。Java语言RPC基于Dubbo2.js，其他语言RPC基于Google GPRC
