@@ -106,7 +106,7 @@ Node将在5G加持下获取更多的能力，基于边缘设备我们可以部�
 
 ![luban](../images/5g/luban.png)
 
-![luban](../images/5g/luban_2.png)
+![luban2](../images/5g/luban_2.png)
 
 - 服务端渲染：基于Next.js
 - 数据互联互通：在HTTP通信层面基于http-proxy-middleware的LubanProxy代理实现跨域和Cookie请求携带。Java语言RPC基于Dubbo2.js，其他语言RPC基于Google GPRC
@@ -114,7 +114,11 @@ Node将在5G加持下获取更多的能力，基于边缘设备我们可以部�
 
 [看看你长的最像那个名人](https://x.tongdun.cn/ai)
 
-![luban](../images/5g/ai_scan.png)
+![ai_scan](../images/5g/ai_scan.png)
+
+## 交流联系
+
+![weixin](../images/5g/weixin.png)
 
 ## 参考资料
 
