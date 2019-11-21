@@ -60,21 +60,45 @@ Mate 30 Pro 5G上市，作为首批用户我第一时间使用SPEEDTEST实测4G�
 
 ![Web_GUI](../images/5G/framework.png)
 
+### 低延时、高速率、高密度，前端网络环境变好
+
+1、在3g和4g时代，针对网络层进行优化，我们会将数据尽可能的放在靠近用户一侧。5g这个原则不变，但是我们会加入云端渲染，客户端仅仅是一个轻量级的客户端。设备可能只需要一个显示屏即可。
+
+2、HTTP2的多路复用，Combo合并请求，种子文件将长缓存一次拉取1-2M的资源文件将变成可能。
+
+3、基于Electron前端可以在用户侧驻留一个端，同时这个端里面集成一个Chrome浏览器，这样可以实现混合部署。既可以获取端的能力，又可以实现远程更新
+
+4、云端存储，离线浏览，实时同步。基于IndexDB将远程的数据在联网的时候实时的克隆到本地，优先使用云端数据。
+
 ### 海量设备入网
 
-大量的IOT设备入网，物理世界抽象到数字世界，将带来大量的中台建设需求。
+大量的IOT设备入网，物理世界抽象到数字世界，将带来大量的中台建设需求。传统的Code开发模式将日益无法支撑爆发式的增持需求。
 
 ![IOT_FRAMEWORK](../images/5G/iot_framework.png)
 
 (泛IOT架构)
 
+![mqtt_broker](../images/5G/mqtt_broker.png)
+
+(mqtt_broker)
+
+![arduinos](../images/5G/arduinos.png)
+
+(arduinos)
+
 ![IOT](../images/5G/iot.jpg)
 
 (WeMos D1 mini NodeMCU)
 
+![5g_cep](../images/5G/5g_cep.png)
+
+(HuaWei 5G CEP PRO)
+
 ### 算法
 
 硬件能力的提升让我们可以在边缘设备上部署小型运算节点，将运算结果实时的回传云端。基于服务端，直接在Node层调用AI模型实现业务应用。
+
+Node将在5G加持下获取更多的能力，基于边缘设备我们可以部署一个小型节点。这个节点上我们可以适时采集用户图像数据，并利用云端的模型适时检测得到结果，结果适时回传云端。
 
 ![ai_platform](../images/5G/ai_platform.png)
 
@@ -88,11 +112,9 @@ Mate 30 Pro 5G上市，作为首批用户我第一时间使用SPEEDTEST实测4G�
 - 数据互联互通：在HTTP通信层面基于http-proxy-middleware的LubanProxy代理实现跨域和Cookie请求携带。Java语言RPC基于Dubbo2.js，其他语言RPC基于Google GPRC
 - 模型能力调用：在AI层面基于opencv4nodejs实现了对模型的直接调用，基于tesseract实现ORC的能力
 
-[测测你最像那位名人](https://x.tongdun.cn/ai)
-
-![ai_scan](../images/5G/ai_scan.png)
-
 ## 参考资料
 
 - [开发板界的「瑞士军刀」—— 树莓派 4 轻体验](https://sspai.com/post/56452)
 - [前端工程——基础篇](https://github.com/fouber/blog/issues/10)
+- [ESP8266 & Public Broker MQTT mosca.io & Node-RED](http://pdacontrolen.com/esp8266-public-broker-mqtt-mosca-io-node-red/)
+- [MIDC 2019 小米开发者大会](https://midc.mi.com/2019/home)
