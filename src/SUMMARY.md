@@ -11,9 +11,17 @@
  - [加载器](luban/loader.md) 
  - [业务编排](luban/event.md) 
 
-* [行业思考]()
- - [5G+AI+IoT 超级互联网时代的思考](thinking/5gaiot.md)
+* [JS基础知识]()
+ - [知识点清单](knowledge/list.md)
+ - [闭包](knowledge/closure.md)
+ - [JavaScript中的this](knowledge/this.md)
+ - [原型(prototype)和原型链(__proto__)](knowledge/prototype.md)
+ - [ES6全部特性](knowledge/es6.md)
+ - [算法](knowledge/algorithm.md)
 
+* [行业思考]()
+ - [Low/No Code Platform](thinking/visualization.md)
+ - [5G+AI+IoT 超级互联网时代的思考](thinking/5gaiot.md)
 
 * [MD演示]()
  - [API](demo/methods.md)
