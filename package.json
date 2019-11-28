@@ -8,6 +8,7 @@
   },
   "author": "178518@gmail.com",
   "scripts": {
+    "start": "node app.js",
     "init": "npm install && gitbook install",
     "dev": "rm -rf _book && gitbook serve",
     "build": "rm -rf _book && gitbook build",

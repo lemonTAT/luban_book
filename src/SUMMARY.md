@@ -18,6 +18,11 @@
  - [原型(prototype)和原型链(__proto__)](knowledge/prototype.md)
  - [ES6全部特性](knowledge/es6.md)
  - [算法](knowledge/algorithm.md)
+ - [AST 抽象语法树](knowledge/ast.md)
+ 
+* [leetcode]()
+ - [1、两数之和](leetcode/twoSum.md)
+ - [88、合并两个有序数组](leetcode/merge.md)
 
 * [行业思考]()
  - [Low/No Code Platform](thinking/visualization.md)
