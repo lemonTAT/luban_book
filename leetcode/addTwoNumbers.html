@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>鲁班时序图 · 鲁班应用搭建平台</title>
+        <title>2、两数相加 · 鲁班应用搭建平台</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -93,10 +93,10 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="bigrender.html" />
+    <link rel="next" href="merge.html" />
     
     
-    <link rel="prev" href="about.html" />
+    <link rel="prev" href="twoSum.html" />
     
 
     </head>
@@ -216,9 +216,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.3.1" data-path="about.html">
+        <li class="chapter " data-level="1.3.1" data-path="../luban/about.html">
             
-                <a href="about.html">
+                <a href="../luban/about.html">
             
                     
                         <b>1.3.1.</b>
@@ -231,9 +231,9 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.3.2" data-path="timeline.html">
+        <li class="chapter " data-level="1.3.2" data-path="../luban/timeline.html">
             
-                <a href="timeline.html">
+                <a href="../luban/timeline.html">
             
                     
                         <b>1.3.2.</b>
@@ -246,9 +246,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.3" data-path="bigrender.html">
+        <li class="chapter " data-level="1.3.3" data-path="../luban/bigrender.html">
             
-                <a href="bigrender.html">
+                <a href="../luban/bigrender.html">
             
                     
                         <b>1.3.3.</b>
@@ -261,9 +261,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.4" data-path="rgl.html">
+        <li class="chapter " data-level="1.3.4" data-path="../luban/rgl.html">
             
-                <a href="rgl.html">
+                <a href="../luban/rgl.html">
             
                     
                         <b>1.3.4.</b>
@@ -276,9 +276,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.5" data-path="loader.html">
+        <li class="chapter " data-level="1.3.5" data-path="../luban/loader.html">
             
-                <a href="loader.html">
+                <a href="../luban/loader.html">
             
                     
                         <b>1.3.5.</b>
@@ -291,9 +291,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.6" data-path="event.html">
+        <li class="chapter " data-level="1.3.6" data-path="../luban/event.html">
             
-                <a href="event.html">
+                <a href="../luban/event.html">
             
                     
                         <b>1.3.6.</b>
@@ -528,9 +528,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.5.1" data-path="../leetcode/twoSum.html">
+        <li class="chapter " data-level="1.5.1" data-path="twoSum.html">
             
-                <a href="../leetcode/twoSum.html">
+                <a href="twoSum.html">
             
                     
                         <b>1.5.1.</b>
@@ -543,9 +543,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.5.2" data-path="../leetcode/addTwoNumbers.html">
+        <li class="chapter active" data-level="1.5.2" data-path="addTwoNumbers.html">
             
-                <a href="../leetcode/addTwoNumbers.html">
+                <a href="addTwoNumbers.html">
             
                     
                         <b>1.5.2.</b>
@@ -558,9 +558,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.5.3" data-path="../leetcode/merge.html">
+        <li class="chapter " data-level="1.5.3" data-path="merge.html">
             
-                <a href="../leetcode/merge.html">
+                <a href="merge.html">
             
                     
                         <b>1.5.3.</b>
@@ -725,7 +725,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >鲁班时序图</a>
+        <a href=".." >2、两数相加</a>
     </h1>
 </div>
 
@@ -740,11 +740,52 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="&#x9C81;&#x73ED;&#x65F6;&#x5E8F;&#x56FE;">&#x9C81;&#x73ED;&#x65F6;&#x5E8F;&#x56FE;</h1>
-<p><img src="../images/timeline.png" alt="&#x9C81;&#x73ED;&#x65F6;&#x5E8F;&#x56FE;"></p>
-<footer class="page-footer"><span class="copyright">Copyright @2019 all right reserved&#xFF0C;powered by Gitbook</span><span class="footer-modification">&#x8BE5;&#x6587;&#x4EF6;&#x4FEE;&#x8BA2;&#x65F6;&#x95F4;&#xFF1A;
-2019-10-25 15:07:54
-</span></footer>
+                                <html><head></head><body><h1 id="&#x4E24;&#x6570;&#x76F8;&#x52A0;">&#x4E24;&#x6570;&#x76F8;&#x52A0;</h1>
+<p>code:</p>
+<p>&#x66B4;&#x529B;&#x641C;&#x7D22;,<a href="https://leetcode-cn.com/problems/two-sum/" target="_blank">&#x4F20;&#x9001;&#x95E8;</a></p>
+<pre class="line-numbers language-undefined"><code class=" language-undefined">/**
+ * @param {ListNode} l1
+ * @param {ListNode} l2
+ * @return {ListNode}
+ */
+var addTwoNumbers = function(l1, l2) {
+    var c1 = l1,
+    c2 = l2,
+    l3, c3,
+    carry = 0;
+
+  while (c1 || c2 || carry) {
+    var v1 = 0,
+      v2 = 0;
+
+    // &#x8FD9;&#x4E48;&#x505A;&#x662F;&#x4E3A;&#x4E86;&#x9632;&#x6B62;&#x6574;&#x6570;&#x4E2D;&#x5F53;&#x524D;&#x4F4D;&#x4E0A;&#x6CA1;&#x6709;&#x6570;&#x5B57;
+    if (c1) {
+      v1 = c1.val;
+      c1 = c1.next;
+    }
+
+    if (c2) {
+      v2 = c2.val;
+      c2 = c2.next;
+    }
+
+    var sum = v1 + v2 + carry;
+    carry = Math.floor(sum / 10);
+
+    if (!c3) {
+      l3 = new ListNode(sum % 10);
+      c3 = l3;
+    } else {
+      c3.next = new ListNode(sum % 10);
+      c3 = c3.next;
+    }
+
+  }
+  return l3;
+};
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><footer class="page-footer"><span class="copyright">Copyright @2019 all right reserved&#xFF0C;powered by Gitbook</span><span class="footer-modification">&#x8BE5;&#x6587;&#x4EF6;&#x4FEE;&#x8BA2;&#x65F6;&#x95F4;&#xFF1A;
+2019-11-28 14:19:22
+</span></footer></body></html>
                                 
                                 </section>
                             
@@ -777,7 +818,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"鲁班时序图","level":"1.3.2","depth":2,"next":{"title":"鲁班BigRender","level":"1.3.3","depth":2,"path":"luban/bigrender.md","ref":"luban/bigrender.md","articles":[]},"previous":{"title":"鲁班","level":"1.3.1","depth":2,"path":"luban/about.md","ref":"luban/about.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-lunr","-search","-sharing","-highlight","splitter","search-plus","prism-ext","github","editlink","advanced-emoji","tbfed-pagefooter","theme-comscore","theme-api","disqus","copy-code-button","donate","alerts","include-codeblock"],"root":"./src","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"Copyright @2019","modify_label":"该文件修订时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"prism":{"theme":"prism-themes/themes/prism-duotone-dark.css","plugins":["line-numbers","line-highlight"],"cssClasses":"line-numbers","codeBlockExtSyntax":true,"lineHeight":20},"disqus":{"useIdentifier":false,"shortName":"luban"},"github":{"url":"https://github.com/178518/luban_book"},"editlink":{"label":"编辑本页","multilingual":false,"base":"https://github.com/178518/luban_book/tree/master/src"},"splitter":{},"donate":{"title":"","button":"赏","wechat":"/images/pay/wechatpay.jpg","alipay":"/images/pay/alipay.jpg","wechatText":"微信打赏","alipayText":"支付宝打赏"},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-comscore":{},"prism-ext":{},"theme-api":{"languages":[],"split":true,"theme":"dark"},"alerts":{},"copy-code-button":{},"advanced-emoji":{"embedEmojis":false},"include-codeblock":{"check":false,"edit":false,"lang":"","fixlang":false,"template":"ace","theme":"monokai","unindent":true},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":true},"search-plus":{}},"theme":"default","author":"178518 <178518@gmail.com>","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"鲁班应用搭建平台","language":"zh-hans","links":{"sidebar":{"鲁班应用搭建平台":"https://github.com/178518/luban_book"}},"gitbook":">=3.0.0","description":"鲁班应用搭建平台"},"file":{"path":"luban/timeline.md","mtime":"2019-10-25T07:07:54.561Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-01-10T01:49:29.210Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"2、两数相加","level":"1.5.2","depth":2,"next":{"title":"88、合并两个有序数组","level":"1.5.3","depth":2,"path":"leetcode/merge.md","ref":"leetcode/merge.md","articles":[]},"previous":{"title":"1、两数之和","level":"1.5.1","depth":2,"path":"leetcode/twoSum.md","ref":"leetcode/twoSum.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-lunr","-search","-sharing","-highlight","splitter","search-plus","prism-ext","github","editlink","advanced-emoji","tbfed-pagefooter","theme-comscore","theme-api","disqus","copy-code-button","donate","alerts","include-codeblock"],"root":"./src","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"Copyright @2019","modify_label":"该文件修订时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"prism":{"theme":"prism-themes/themes/prism-duotone-dark.css","plugins":["line-numbers","line-highlight"],"cssClasses":"line-numbers","codeBlockExtSyntax":true,"lineHeight":20},"disqus":{"useIdentifier":false,"shortName":"luban"},"github":{"url":"https://github.com/178518/luban_book"},"editlink":{"label":"编辑本页","multilingual":false,"base":"https://github.com/178518/luban_book/tree/master/src"},"splitter":{},"donate":{"title":"","button":"赏","wechat":"/images/pay/wechatpay.jpg","alipay":"/images/pay/alipay.jpg","wechatText":"微信打赏","alipayText":"支付宝打赏"},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-comscore":{},"prism-ext":{},"theme-api":{"languages":[],"split":true,"theme":"dark"},"alerts":{},"copy-code-button":{},"advanced-emoji":{"embedEmojis":false},"include-codeblock":{"check":false,"edit":false,"lang":"","fixlang":false,"template":"ace","theme":"monokai","unindent":true},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":true},"search-plus":{}},"theme":"default","author":"178518 <178518@gmail.com>","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"鲁班应用搭建平台","language":"zh-hans","links":{"sidebar":{"鲁班应用搭建平台":"https://github.com/178518/luban_book"}},"gitbook":">=3.0.0","description":"鲁班应用搭建平台"},"file":{"path":"leetcode/addTwoNumbers.md","mtime":"2019-11-28T06:19:22.213Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-01-10T01:49:29.210Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
