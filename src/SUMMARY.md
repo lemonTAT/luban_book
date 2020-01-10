@@ -12,6 +12,11 @@
  - [业务编排](luban/event.md) 
 
 * [JS基础知识]()
+ - [PubSub JS源码解读](knowledge/pubsub.md)
+ - [React Virtual Dom Diff](knowledge/domdiff.md)
+ - [Redux数据流](knowledge/redux.md)
+ - [nodejs中流(stream)的理解](knowledge/stream.md)
+ - [node子进程spawn,exec](knowledge/child_process.md)
  - [知识点清单](knowledge/list.md)
  - [闭包](knowledge/closure.md)
  - [JavaScript中的this](knowledge/this.md)
@@ -22,6 +27,7 @@
  
 * [leetcode]()
  - [1、两数之和](leetcode/twoSum.md)
+ - [2、两数相加](leetcode/addTwoNumbers.md)
  - [88、合并两个有序数组](leetcode/merge.md)
 
 * [行业思考]()

@@ -23,8 +23,9 @@ code:
  */
 var twoSum = function(nums, target) {
     var index=[];
-    for(var i = nums.length-1; i > 0; i--) {
-        for(var j = i - 1; j >= 0; j--) {
+    for(var i = nums.length-1; i > 0; i--) { // 从后往前找,N位
+        for(var j = i - 1; j >= 0; j--) {    // 从后往前找,
+        debugger
             if(nums[j] + nums[i] == target) {
                 index.push(j);
                 index.push(i);

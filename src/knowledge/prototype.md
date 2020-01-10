@@ -4,6 +4,8 @@
 
 >-- 老子 《道德经》
 
+原型是函数对象的属性，不是所有对象的属性，对象经过构造函数new出来，那么这个new出来的对象的构造函数有一个属性叫原型。
+
 ## 道：空值
 
 理解Javascript（以下简称“JS”）之道，需要先理解undefined与null的区别。
@@ -84,7 +86,22 @@ JS之道，万物自成一体，理解了这个道理，掌握JS的原型便不�
 
 个人理解：你一直在用，只是你不知道。本质上是为了实现OOP。
 
+### 是什么
+
+- 显式原型
+ - 函数在创建之后都会拥有一个名为prototype的属性，这个属性指向函数的原型对象。
+- 隐式原型
+ - JavaScript中任意对象都有一个内置属性[[prototype]]，在ES5之前没有标准的方法访问这个内置属性，但是大多数浏览器都支持通过__proto__来访问。ES5中有了对于这个内置属性标准的Get方法Object.getPrototypeOf()。 Object.prototype 这个对象是个例外，它的__proto__值为null。
+ 
+ 隐式原型指向创建这个对象的函数(constructor)的prototype
+ 
+ ### 作用是什么
+ 
+- 显式原型的作用：用来实现基于原型的继承与属性的共享。
+- 隐式原型的作用：构成原型链，同样用于实现基于原型的继承。举个例子，当我们访问obj这个对象中的x属性时，如果在obj中找不到，那么就会沿着__proto__依次查找。 
+
 ## 参考资料
 - [道生万物,理解Javascript原型链](https://zhuanlan.zhihu.com/p/31822475)
 - [进阶必读：深入理解 JavaScript 原型](https://zhuanlan.zhihu.com/p/87667349)
 - [说说原型（prototype）、原型链和原型继承](https://zhuanlan.zhihu.com/p/35790971)
+- [深入理解javascript中的原型](https://liuchi.coding.me/2017/01/25/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3javascript%E4%B8%AD%E7%9A%84%E5%8E%9F%E5%9E%8B/)
