@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>1、两数之和 · 鲁班应用搭建平台</title>
+        <title>AI时代验证码的攻与防 · 鲁班应用搭建平台</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -93,7 +93,7 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="addTwoNumbers.html" />
+    <link rel="next" href="visualization.html" />
     
     
 
@@ -526,9 +526,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter active" data-level="1.5.1" data-path="twoSum.html">
+        <li class="chapter " data-level="1.5.1" data-path="../leetcode/twoSum.html">
             
-                <a href="twoSum.html">
+                <a href="../leetcode/twoSum.html">
             
                     
                         <b>1.5.1.</b>
@@ -541,9 +541,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.5.2" data-path="addTwoNumbers.html">
+        <li class="chapter " data-level="1.5.2" data-path="../leetcode/addTwoNumbers.html">
             
-                <a href="addTwoNumbers.html">
+                <a href="../leetcode/addTwoNumbers.html">
             
                     
                         <b>1.5.2.</b>
@@ -556,9 +556,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.5.3" data-path="merge.html">
+        <li class="chapter " data-level="1.5.3" data-path="../leetcode/merge.html">
             
-                <a href="merge.html">
+                <a href="../leetcode/merge.html">
             
                     
                         <b>1.5.3.</b>
@@ -592,9 +592,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.6.1" data-path="../thinking/captcha.html">
+        <li class="chapter active" data-level="1.6.1" data-path="captcha.html">
             
-                <a href="../thinking/captcha.html">
+                <a href="captcha.html">
             
                     
                         <b>1.6.1.</b>
@@ -607,9 +607,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.6.2" data-path="../thinking/visualization.html">
+        <li class="chapter " data-level="1.6.2" data-path="visualization.html">
             
-                <a href="../thinking/visualization.html">
+                <a href="visualization.html">
             
                     
                         <b>1.6.2.</b>
@@ -622,9 +622,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.6.3" data-path="../thinking/5gaiot.html">
+        <li class="chapter " data-level="1.6.3" data-path="5gaiot.html">
             
-                <a href="../thinking/5gaiot.html">
+                <a href="5gaiot.html">
             
                     
                         <b>1.6.3.</b>
@@ -738,7 +738,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >1、两数之和</a>
+        <a href=".." >AI时代验证码的攻与防</a>
     </h1>
 </div>
 
@@ -753,36 +753,11 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <html><head></head><body><h1 id="&#x4E24;&#x6570;&#x4E4B;&#x548C;">&#x4E24;&#x6570;&#x4E4B;&#x548C;</h1>
-<p>&#x7ED9;&#x5B9A;&#x4E00;&#x4E2A;&#x6574;&#x6570;&#x6570;&#x7EC4; nums &#x548C;&#x4E00;&#x4E2A;&#x76EE;&#x6807;&#x503C; target&#xFF0C;&#x8BF7;&#x4F60;&#x5728;&#x8BE5;&#x6570;&#x7EC4;&#x4E2D;&#x627E;&#x51FA;&#x548C;&#x4E3A;&#x76EE;&#x6807;&#x503C;&#x7684;&#x90A3; &#x4E24;&#x4E2A; &#x6574;&#x6570;&#xFF0C;&#x5E76;&#x8FD4;&#x56DE;&#x4ED6;&#x4EEC;&#x7684;&#x6570;&#x7EC4;&#x4E0B;&#x6807;&#x3002;</p>
-<p>&#x4F60;&#x53EF;&#x4EE5;&#x5047;&#x8BBE;&#x6BCF;&#x79CD;&#x8F93;&#x5165;&#x53EA;&#x4F1A;&#x5BF9;&#x5E94;&#x4E00;&#x4E2A;&#x7B54;&#x6848;&#x3002;&#x4F46;&#x662F;&#xFF0C;&#x4F60;&#x4E0D;&#x80FD;&#x91CD;&#x590D;&#x5229;&#x7528;&#x8FD9;&#x4E2A;&#x6570;&#x7EC4;&#x4E2D;&#x540C;&#x6837;&#x7684;&#x5143;&#x7D20;&#x3002;</p>
-<pre class="line-numbers language-undefined"><code class=" language-undefined">&#x7ED9;&#x5B9A; nums = [2, 7, 11, 15], target = 9
-
-&#x56E0;&#x4E3A; nums[0] + nums[1] = 2 + 7 = 9
-&#x6240;&#x4EE5;&#x8FD4;&#x56DE; [0, 1]
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre><p>code:</p>
-<p>&#x66B4;&#x529B;&#x641C;&#x7D22;,<a href="https://leetcode-cn.com/problems/two-sum/" target="_blank">&#x4F20;&#x9001;&#x95E8;</a></p>
-<pre class="line-numbers language-undefined"><code class=" language-undefined">/**
- * @param {number[]} nums
- * @param {number} target
- * @return {number[]}
- */
-var twoSum = function(nums, target) {
-    var index=[];
-    for(var i = nums.length-1; i &gt; 0; i--) { // &#x4ECE;&#x540E;&#x5F80;&#x524D;&#x627E;,N&#x4F4D;
-        for(var j = i - 1; j &gt;= 0; j--) {    // &#x4ECE;&#x540E;&#x5F80;&#x524D;&#x627E;,
-        debugger
-            if(nums[j] + nums[i] == target) {
-                index.push(j);
-                index.push(i);
-                return index;
-            }
-        }
-    }
-};
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><footer class="page-footer"><span class="copyright">Copyright @2019 all right reserved&#xFF0C;powered by Gitbook</span><span class="footer-modification">&#x8BE5;&#x6587;&#x4EF6;&#x4FEE;&#x8BA2;&#x65F6;&#x95F4;&#xFF1A;
-2019-11-29 10:28:46
-</span></footer></body></html>
+                                <h1 id="ai&#x65F6;&#x4EE3;&#x9A8C;&#x8BC1;&#x7801;&#x7684;&#x653B;&#x4E0E;&#x9632;">AI&#x65F6;&#x4EE3;&#x9A8C;&#x8BC1;&#x7801;&#x7684;&#x653B;&#x4E0E;&#x9632;</h1>
+<p><a href="https://mp.weixin.qq.com/s/FPv9Ndci6vogYwYt70VahQ" target="_blank">AI&#x65F6;&#x4EE3;&#x9A8C;&#x8BC1;&#x7801;&#x7684;&#x653B;&#x4E0E;&#x9632;</a></p>
+<footer class="page-footer"><span class="copyright">Copyright @2019 all right reserved&#xFF0C;powered by Gitbook</span><span class="footer-modification">&#x8BE5;&#x6587;&#x4EF6;&#x4FEE;&#x8BA2;&#x65F6;&#x95F4;&#xFF1A;
+2020-02-21 10:24:10
+</span></footer>
                                 
                                 </section>
                             
@@ -815,7 +790,7 @@ var twoSum = function(nums, target) {
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"1、两数之和","level":"1.5.1","depth":2,"next":{"title":"2、两数相加","level":"1.5.2","depth":2,"path":"leetcode/addTwoNumbers.md","ref":"leetcode/addTwoNumbers.md","articles":[]},"previous":{"title":"leetcode","level":"1.5","depth":1,"ref":"","articles":[{"title":"1、两数之和","level":"1.5.1","depth":2,"path":"leetcode/twoSum.md","ref":"leetcode/twoSum.md","articles":[]},{"title":"2、两数相加","level":"1.5.2","depth":2,"path":"leetcode/addTwoNumbers.md","ref":"leetcode/addTwoNumbers.md","articles":[]},{"title":"88、合并两个有序数组","level":"1.5.3","depth":2,"path":"leetcode/merge.md","ref":"leetcode/merge.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["-lunr","-search","-sharing","-highlight","splitter","search-plus","prism-ext","github","editlink","advanced-emoji","tbfed-pagefooter","theme-comscore","theme-api","disqus","copy-code-button","donate","alerts","include-codeblock"],"root":"./src","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"Copyright @2019","modify_label":"该文件修订时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"prism":{"theme":"prism-themes/themes/prism-duotone-dark.css","plugins":["line-numbers","line-highlight"],"cssClasses":"line-numbers","codeBlockExtSyntax":true,"lineHeight":20},"disqus":{"useIdentifier":false,"shortName":"luban"},"github":{"url":"https://github.com/178518/luban_book"},"editlink":{"label":"编辑本页","multilingual":false,"base":"https://github.com/178518/luban_book/tree/master/src"},"splitter":{},"donate":{"title":"","button":"赏","wechat":"/images/pay/wechatpay.jpg","alipay":"/images/pay/alipay.jpg","wechatText":"微信打赏","alipayText":"支付宝打赏"},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-comscore":{},"prism-ext":{},"theme-api":{"languages":[],"split":true,"theme":"dark"},"alerts":{},"copy-code-button":{},"advanced-emoji":{"embedEmojis":false},"include-codeblock":{"check":false,"edit":false,"lang":"","fixlang":false,"template":"ace","theme":"monokai","unindent":true},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":true},"search-plus":{}},"theme":"default","author":"178518 <178518@gmail.com>","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"鲁班应用搭建平台","language":"zh-hans","links":{"sidebar":{"鲁班应用搭建平台":"https://github.com/178518/luban_book"}},"gitbook":">=3.0.0","description":"鲁班应用搭建平台"},"file":{"path":"leetcode/twoSum.md","mtime":"2019-11-29T02:28:46.014Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-02-21T02:27:54.962Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"AI时代验证码的攻与防","level":"1.6.1","depth":2,"next":{"title":"Low/No Code Platform","level":"1.6.2","depth":2,"path":"thinking/visualization.md","ref":"thinking/visualization.md","articles":[]},"previous":{"title":"行业思考","level":"1.6","depth":1,"ref":"","articles":[{"title":"AI时代验证码的攻与防","level":"1.6.1","depth":2,"path":"thinking/captcha.md","ref":"thinking/captcha.md","articles":[]},{"title":"Low/No Code Platform","level":"1.6.2","depth":2,"path":"thinking/visualization.md","ref":"thinking/visualization.md","articles":[]},{"title":"5G+AI+IoT 超级互联网时代的思考","level":"1.6.3","depth":2,"path":"thinking/5gaiot.md","ref":"thinking/5gaiot.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["-lunr","-search","-sharing","-highlight","splitter","search-plus","prism-ext","github","editlink","advanced-emoji","tbfed-pagefooter","theme-comscore","theme-api","disqus","copy-code-button","donate","alerts","include-codeblock"],"root":"./src","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"Copyright @2019","modify_label":"该文件修订时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"prism":{"theme":"prism-themes/themes/prism-duotone-dark.css","plugins":["line-numbers","line-highlight"],"cssClasses":"line-numbers","codeBlockExtSyntax":true,"lineHeight":20},"disqus":{"useIdentifier":false,"shortName":"luban"},"github":{"url":"https://github.com/178518/luban_book"},"editlink":{"label":"编辑本页","multilingual":false,"base":"https://github.com/178518/luban_book/tree/master/src"},"splitter":{},"donate":{"title":"","button":"赏","wechat":"/images/pay/wechatpay.jpg","alipay":"/images/pay/alipay.jpg","wechatText":"微信打赏","alipayText":"支付宝打赏"},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-comscore":{},"prism-ext":{},"theme-api":{"languages":[],"split":true,"theme":"dark"},"alerts":{},"copy-code-button":{},"advanced-emoji":{"embedEmojis":false},"include-codeblock":{"check":false,"edit":false,"lang":"","fixlang":false,"template":"ace","theme":"monokai","unindent":true},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":true},"search-plus":{}},"theme":"default","author":"178518 <178518@gmail.com>","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"鲁班应用搭建平台","language":"zh-hans","links":{"sidebar":{"鲁班应用搭建平台":"https://github.com/178518/luban_book"}},"gitbook":">=3.0.0","description":"鲁班应用搭建平台"},"file":{"path":"thinking/captcha.md","mtime":"2020-02-21T02:24:10.128Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-02-21T02:27:54.962Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
