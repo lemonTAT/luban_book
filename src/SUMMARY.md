@@ -31,6 +31,7 @@
  - [88、合并两个有序数组](leetcode/merge.md)
 
 * [行业思考]()
+ - [AI时代验证码的攻与防](thinking/captcha.md)
  - [Low/No Code Platform](thinking/visualization.md)
  - [5G+AI+IoT 超级互联网时代的思考](thinking/5gaiot.md)
 
