@@ -11,6 +11,9 @@
  - [加载器](luban/loader.md) 
  - [业务编排](luban/event.md) 
 
+* [浏览器渲染]()
+ - [渲染原理](browser/render.md) 
+
 * [JS基础知识]()
  - [PubSub JS源码解读](knowledge/pubsub.md)
  - [React Virtual Dom Diff](knowledge/domdiff.md)
