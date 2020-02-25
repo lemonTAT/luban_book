@@ -33,6 +33,10 @@
  - [2、两数相加](leetcode/addTwoNumbers.md)
  - [88、合并两个有序数组](leetcode/merge.md)
 
+* [P7、P8知识点]()
+ - [前端知识题](subject/400.md) 
+ - [答案](subject/toutiao.md) 
+
 * [行业思考]()
  - [AI时代验证码的攻与防](thinking/captcha.md)
  - [Low/No Code Platform](thinking/visualization.md)
