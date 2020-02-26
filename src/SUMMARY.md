@@ -13,6 +13,8 @@
 
 * [浏览器渲染]()
  - [渲染原理](browser/render.md) 
+ - [路由History](browser/history.md) 
+ - [服务端渲染SSR](browser/ssr.md) 
 
 * [JS基础知识]()
  - [PubSub JS源码解读](knowledge/pubsub.md)
