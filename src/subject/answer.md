@@ -2,9 +2,31 @@
 
 ## 使用过的Koa2中间件
 
-![koa](../images/koa.png)
+![koa](../images/koa2.png)
 
 ## Koa-body原理
+
+一个功能齐全的请求体解析器。支持multipart，urlencoded和json请求体。
+
+```
+{
+  multipart: true, // 支持文件上传
+  formidable: {
+    maxFileSize: 200 * 1024 * 1024, // 设置上传文件大小最大限制，默认200M
+  },
+  formLimit: '200mb',
+  jsonLimit: '5mb',
+  textLimit: '5mb',
+}
+```
+
+### Get参数获取
+
+ctx.params
+
+### Post参数获取
+
+ctx.request.body
 
 ## 对Async、Await的理解，内部原理
 

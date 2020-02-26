@@ -37,7 +37,7 @@
 
 * [P7、P8知识点]()
  - [前端知识题](subject/400.md) 
- - [答案](subject/toutiao.md) 
+ - [答案](subject/answer.md) 
 
 * [行业思考]()
  - [AI时代验证码的攻与防](thinking/captcha.md)
