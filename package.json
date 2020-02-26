@@ -29,7 +29,9 @@
     "gitbook-plugin-tbfed-pagefooter": "0.0.1",
     "gitbook-plugin-theme-api": "^1.1.2",
     "gitbook-plugin-theme-comscore": "0.0.3",
-    "live-server": "^1.2.1"
+    "live-server": "^1.2.1",
+    "unzip": "^0.1.11",
+    "zlib": "^1.0.5"
   },
   "devDependencies": {
     "chalk": "^2.4.2",
