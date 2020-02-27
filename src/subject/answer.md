@@ -4,6 +4,61 @@
 
 ![koa](../images/koa2.png)
 
+## 源码文件
+
+```
+├── lib
+│   ├── application.js
+│   ├── context.js
+│   ├── request.js
+│   └── response.js
+└── package.json
+```
+
+核心代码就是lib目录下的四个文件
+
+- application.js 是整个koa2 的入口文件，封装了context，request，response，以及最核心的中间件处理流程。
+- context.js 处理应用上下文，里面直接封装部分request.js和response.js的方法
+- request.js 处理http请求
+- response.js 处理http响应
+
+Koa.js 作为一个web框架，总结出来提供了两种能力
+
+- 中间件机制（AOP切面）
+- HTTP服务
+
+![Koa.js 的AOP设计](https://chenshuyao.cn/img/koa/koa.png)
+
+Koa洋葱模型本质是AOP面向切面编程，切面由中间件机制实现，中间件单一职责，遵循先进后出的切面执行顺序，类似入栈出栈的顺序。
+
+HTTP 切面流程（请求=>中间件=>响应） 从HTTP请求拿到想要的数据，然后处理想要处理的事情，最后返回处理后的结果
+
+## koa流程
+
+![koa流程](https://pic4.zhimg.com/v2-edff4ee8869023ef27cba34cdbd6a8d3_r.jpg)
+
+koa的流程分为三个部分：初始化 -> 启动Server -> 请求响应
+
+- 初始化
+ - 初始化koa对象之前我们称为初始化
+- 启动server
+ - 初始化中间件(中间件建立联系)
+ - 启动服务,监听特定端口,并生成一个新的上下文对象
+- 请求响应
+ - 接受请求,初始化上下文对象
+ - 执行中间件
+ - 将body返回给客户端
+ 
+- 初始化
+ - 定义了三个对象，context, response, request
+ 
+const ctx = this.createContext(req, res);创建一个最终可用版的context
+
+![ctx](../images/ctx.jpg) 
+
+- [从源码入手探索koa2应用的实现](https://zhuanlan.zhihu.com/p/43718629)
+- [Koa洋葱模型与面向切面编程](https://chenshuyao.cn/2019/05/26/koajs.html)
+
 ## Koa-body原理
 
 一个功能齐全的请求体解析器。支持multipart，urlencoded和json请求体。

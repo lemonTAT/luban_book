@@ -1,5 +1,6 @@
 const zlib = require('zlib');
 const unzip = require('unzip');
+const jsZip = require('jszip');
 const fs = require('fs');
 const path = require('path');
 
