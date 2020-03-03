@@ -75,9 +75,19 @@ const ctx = this.createContext(req, res);创建一个最终可用版的context
 }
 ```
 
+koa-body就是结合了koa-bodyparse和koa-multer，可以把GETPOST的参数解析到ctx.request.body中。
+
+HTTP报文主要分为请求报文和响应报文，主要由以下三个部分组成：报文头部、空行、报文主体。
+
+body-parser中间件返回promise，在执行了某些操作之后，把结果挂载到ctx.request.body上。
+
 ### Get参数获取
 
-ctx.params
+ctx.query/ctx.queryString，query返回是格式化好的参数对象，querystring返回的是请求字符串
+
+### RESTful API 
+
+ctx.params，GET /zoos：列出所有动物园
 
 ### Post参数获取
 
