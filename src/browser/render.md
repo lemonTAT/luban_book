@@ -45,3 +45,5 @@ Reflow 的成本比 Repaint 的成本高得多的多。一个结点的 Reflow �
 
 - 浏览器内核、JS 引擎、页面呈现原理及其优化
 - chrome浏览器页面渲染工作原理浅析
+
+[浏览器工作原理:从输入URL到页面加载完成](https://github.com/amandakelake/blog/issues/55)

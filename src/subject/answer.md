@@ -95,9 +95,9 @@ ctx.request.body
 
 ## 对Async、Await的理解，内部原理
 
-async---声明一个异步函数：自动将常规函数转换成promise，返回值也是一个promise对象，只有async函数内部的异步操作执行完，才会执行then方法指定的回调函数，内部可以使用await；
+async(声明一个异步函数):自动将常规函数转换成promise，返回值也是一个promise对象，只有async函数内部的异步操作执行完，才会执行then方法指定的回调函数，内部可以使用await；
 
-await--暂停异步的功能执行：放在promise调用之前，await强制其他代码等待，直到promise完成并返回结果，只能与promise一起使用，不适用于回调，只能在async函数内部使用。
+await(暂停异步的功能执行):放在promise调用之前，await强制其他代码等待，直到promise完成并返回结果，只能与promise一起使用，不适用于回调，只能在async函数内部使用。
 
 JavaScript对于异步操作有了终极解决方案。
 

@@ -15,11 +15,18 @@
  - [渲染原理](browser/render.md) 
  - [路由History](browser/history.md) 
  - [服务端渲染SSR](browser/ssr.md) 
+ 
+* [设计模式]()
+ - [设计模式](design_pattern/design_pattern.md) 
+
+* [函数式编程]()
+ - [函数式编程](programming/functional_programming.md) 
 
 * [JS基础知识]()
  - [PubSub JS源码解读](knowledge/pubsub.md)
  - [React Virtual Dom Diff](knowledge/domdiff.md)
  - [Redux数据流](knowledge/redux.md)
+ - [Redux设计原理](knowledge/redux_2.md)
  - [nodejs中流(stream)的理解](knowledge/stream.md)
  - [node子进程spawn,exec](knowledge/child_process.md)
  - [知识点清单](knowledge/list.md)
