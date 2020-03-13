@@ -56,10 +56,19 @@
 - 没有副作用（No Side Effects）
 - 纯函数 (pure functions)
 
+## 优势
+
+- 代码简洁，开发快速
+- 接近自然语言，易于理解
+- 更方便的代码管理
+- 易于"并发编程"
+- 代码的热升级
+
 ## 参考资料
 - [Pointfree 编程风格指南](http://www.ruanyifeng.com/blog/2017/03/pointfree.html)
 - [函数式编程入门教程](http://www.ruanyifeng.com/blog/2017/02/fp-tutorial.html)
 - [Ramda 函数库参考教程](https://www.ruanyifeng.com/blog/2017/03/ramda.html)
+- [Ramda 函数简介](https://adispring.github.io/2017/10/21/What-Function-Should-I-Use)
 - [「译」理解JavaScript的柯里化](https://zhuanlan.zhihu.com/p/50247174)
 - [JS专题之函数柯里化](https://zhuanlan.zhihu.com/p/55785190)
 - [什么是函数式编程思维？](https://juejin.im/entry/59c654906fb9a00a4e67af25)
