@@ -92,11 +92,11 @@ const searchUser = R.where({
   role: R.equals(2),
 });
 
-const filterUsers = R.sortBy(R.prop('id'),R.filter(searchUser, users));
-const filterUsers2 = R.compose(R.sortBy(R.prop('id')),R.filter(searchUser))(users);
-const filterUsers3 = R.pipe(R.filter(searchUser),R.sortBy(R.prop('id')))(users);
+const filterUsers = R.sortBy(R.prop('id'), R.filter(searchUser, users));
+const filterUsers2 = R.compose(R.sortBy(R.prop('id')), R.filter(searchUser))(users);
+const filterUsers3 = R.pipe(R.filter(searchUser), R.sortBy(R.prop('id')))(users);
 
-console.log(filterUsers3);
+//console.log(filterUsers3);
 
 // 原价
 const double = price => price * 2;
@@ -106,4 +106,11 @@ const discount = price => price * 0.8;
 const coupon = price => price - 50;
 
 const finalPrice = R.compose(coupon, discount, double)(50);
-console.log('finalPrice',finalPrice);
+// console.log('finalPrice',finalPrice);
+
+const x = 1;
+const addOne = R.inc(x);
+
+const decOne = R.dec(addOne);
+
+console.log(R.compose(R.dec,R.inc)(2));
