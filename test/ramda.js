@@ -110,7 +110,6 @@ const finalPrice = R.compose(coupon, discount, double)(50);
 
 const x = 1;
 const addOne = R.inc(x);
-
 const decOne = R.dec(addOne);
 
 console.log(R.compose(R.dec,R.inc)(2));
